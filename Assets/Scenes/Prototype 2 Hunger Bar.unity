@@ -628,12 +628,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpawnManager
   animalPrefabs:
   - animalPrefab: {fileID: 434181979938666736, guid: e8d7109c0f9518f4a83a7e58e489e15a, type: 3}
-    hunger: 0
+    hunger: 5
   - animalPrefab: {fileID: 2373276938862507370, guid: 13985b658e4c00a429e086d149a61ac4, type: 3}
-    hunger: 0
+    hunger: 3
   - animalPrefab: {fileID: 4460289299077564816, guid: 8b2cba5d4ef12bf429e47386e02443d0, type: 3}
-    hunger: 0
-  isAggressive: 0
+    hunger: 1
+  isAggressive: 1
 --- !u!4 &1453002510
 Transform:
   m_ObjectHideFlags: 0

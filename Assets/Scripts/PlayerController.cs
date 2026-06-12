@@ -10,12 +10,20 @@ public class PlayerController : MonoBehaviour
 
     [Header("Configuration")]
     public float speed = 10f;
+    public int health = 3;
+    public int score = 0;
     public float xRange = 10f;
     public float zLowerBound = -1f;
     public float zUpperBound = 15f;
 
     [Header("Projectile")]
     public GameObject projectilePrefab;
+
+    void Awake()
+    {
+        health = 3; // Sanity check
+        score = 0;
+    }
 
     void OnEnable()
     {
@@ -51,6 +59,27 @@ public class PlayerController : MonoBehaviour
         {
             Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
         }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Animal"))
+        {
+            Destroy(other.gameObject);
+            health--;
+            Debug.Log("Hit! Current Health: " + health);
+            if (health < 1)
+            {
+                Debug.Log("Game Over!");
+                Destroy(gameObject);
+            }
+        }
+    }
+
+    public void AddScore(int amount)
+    {
+        score += amount;
+        Debug.Log("Current score: " + score);
     }
 
     void OnDisable()
